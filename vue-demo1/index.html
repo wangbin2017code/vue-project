@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue学习</title>
+    <style>
+        .active{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <h1>vue</h1>
+    <div>
+        <input type="text" v-model="name">
+        <span v-show="name">你的姓名是: {{name}}</span>
+    </div>
+    <div>
+        <input type="text" v-model="age">
+        <span v-if="age">你的年龄是: {{age}}</span>
+    </div>
+    <div>
+        <input type="text" v-model="sex">
+        <span v-show="sex">你的性别是: {{sex}}</span>
+    </div>
+
+    <hr/>
+    <h1>vue v-for</h1>
+    <div>
+        <ul>
+            <li v-for="food in foodList">
+                {{food.name}}: ￥{{food.discount?food.price * food.discount:food.price}}
+            </li>
+        </ul>
+    </div>
+
+    <hr/>
+    <h1>vue v-bind</h1>
+    <div>
+        <a v-bind:href="url" target="_blank" :class="{active:isActive}">
+            <span v-bind:class="linkStyle">点我</span>
+        </a><br/>
+        <img v-bind:src="img" alt="百度图片">
+    </div>
+
+    <hr/>
+    <h1>Vue v-on</h1>
+    <div>
+        <button v-on:click="onClick" v-on="{mouseenter:onEnter,mouseleave:onLeave}">点我</button><br/>
+        <form @submit.prevent="onSubmit" @keyup.enter="onKeyUp_enter">
+            <input type="text">
+            <button type="submit">提交</button>
+        </form>
+        <br/><br/>
+        <form @submit="onSubmit1($event)">
+            <input type="text">
+            <button type="submit">提交</button>
+        </form>
+    </div>
+
+</div>
+<script src="../lib/vue.js" type="text/javascript"></script>
+<script src="./js/main.js" type="text/javascript"></script>
+</body>
+</html>
