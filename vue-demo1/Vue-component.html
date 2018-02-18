@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue-component</title>
+    <style type="text/css">
+        .liked{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="componentDemo">
+    <alert></alert>
+    <alert></alert>
+    <alert></alert>
+</div>
+<div id="componentDemo1">
+    <alert></alert>
+    <alert></alert>
+    <alert></alert>
+</div>
+
+<hr/>
+
+<h1>组件</h1>
+<div id="likeComponent">
+    <like></like>
+</div>
+<hr/>
+<div id="gobalLikeComponent">
+    <golabl_like></golabl_like>
+</div>
+
+<!-- 模板-->
+<template id="gobalLikeComponetId">
+    <button :class="{liked:like_flag}" @click="onLikeClick">点赞: {{like_count}}</button>
+</template>
+
+<hr/>
+<h1>Vue 父组件-》子组件的通信</h1>
+<div id="parentToSonContactId">
+    <alertmsg msg="hello wangbin!"></alertmsg>
+    <br/><br/>
+    <user username="lisi"></user>
+</div>
+
+<hr/>
+<h1>Vue 子组件--》父组件的通信</h1>
+<div id="sonToParentConcatId">
+    <balance></balance>
+</div>
+<script src="../lib/vue.js" type="text/javascript"></script>
+<script src="./js/vueComponent.js" type="text/javascript"></script>
+</body>
+</html>
